@@ -1,0 +1,67 @@
+package org.example;
+
+import com.microsoft.playwright.*;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+import java.security.Key;
+
+public class KeyBoardsAction {
+    Playwright playwright;
+    BrowserType browserType;
+    Browser browser;
+    BrowserContext browserContext;
+    Page page;
+    @BeforeSuite
+    public void startBrowser(){
+        playwright=Playwright.create();
+        browserType=playwright.chromium();
+        browser=browserType.launch(new BrowserType.LaunchOptions().setHeadless(false));
+        browserContext=browser.newContext();
+        page=browser.newPage();
+        System.out.println("Browser version :" +browser.version());
+    }
+    @Test
+    public void openUrl(){
+
+        page.navigate("https://testing-and-learning-hub.vercel.app/WebAutomation/pages/registration_form.html");
+    }
+    @Test(dependsOnMethods = "openUrl")
+    public void keyboard() throws InterruptedException {
+     ElementHandle firstname=page.querySelector("//input[@id='first-name']") ;
+     firstname.click();
+     Thread.sleep(2000);
+     page.keyboard().type("Nahida");
+     Thread.sleep(2000);
+
+     //select
+        page.keyboard().down("Control");
+        page.keyboard().press("KeyA");
+        page.keyboard().up("Control");
+        Thread.sleep(2000);
+
+        //Copy
+        page.keyboard().down("Control");
+        page.keyboard().press("KeyC");
+        page.keyboard().up("Control");
+        Thread.sleep(2000);
+
+        //Tab
+        page.keyboard().press("Tab");
+
+        //down
+        page.keyboard().down("Control");
+        page.keyboard().press("KeyV");
+        page.keyboard().up("Control");
+        Thread.sleep(2000);
+    }
+
+
+    @AfterSuite
+    public void stop(){
+        page.close();
+        browser.close();
+        playwright.close();
+    }
+}
