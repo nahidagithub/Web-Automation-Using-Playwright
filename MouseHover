@@ -1,0 +1,36 @@
+package org.example;
+
+import com.microsoft.playwright.*;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+public class MouseHover {
+    Playwright playwright;
+    BrowserType browserType;
+    Browser browser;
+    BrowserContext browserContext;
+    Page page;
+    @BeforeSuite
+    public  void  start(){
+        playwright=Playwright.create();
+        browserType=playwright.chromium();
+        browser=browserType.launch(new BrowserType.LaunchOptions().setHeadless(false));
+        browserContext=browser.newContext();
+        page=browser.newPage();
+        System.out.println("Browser Version: " +browser.version());
+    }
+    @Test
+    public  void mouseHover() throws InterruptedException {
+        page.navigate("https://practice.expandtesting.com/hovers");
+        ElementHandle mousehover=page.querySelector("//div[@class='container']//div[1]//img[1]");
+        mousehover.hover();
+        Thread.sleep(2000);
+    }
+    @AfterSuite
+    public void stopBrowser(){
+        page.close();
+        browser.close();
+        playwright.close();
+    }
+}
