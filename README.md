@@ -43,7 +43,7 @@ This repository includes a comprehensive web automation project using Java that 
 
 
 
-  ### 3. **Option Select Class**
+  ### 4. **Option Select Class**
 
 - **Description:** This class automates the selection of options from a dropdown.
 - **Steps:**
@@ -52,7 +52,7 @@ This repository includes a comprehensive web automation project using Java that 
      
 
 
-  ### 4. **Automatic Mouse Hovering and Click Class**
+  ### 5. **Automatic Mouse Hovering and Click Class**
 
 - **Description:** This class demonstrates mouse hovering over elements and clicking.
 - **Steps:**
@@ -62,7 +62,7 @@ This repository includes a comprehensive web automation project using Java that 
 
 
 
-  ### 5. **Copy and Paste Class**
+  ### 6. **Copy and Paste Class**
 
 - **Description:** This class works with copying and pasting using keyboard shortcuts.
 - **Steps:**
@@ -70,7 +70,7 @@ This repository includes a comprehensive web automation project using Java that 
      
 
  
- ### 6. **Assertion Test Class**
+ ### 7. **Assertion Test Class**
 
 - **Description:** This class demonstrates assertion testing by comparing the expected and actual titles of a webpage.
   
