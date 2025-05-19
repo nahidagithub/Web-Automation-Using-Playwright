@@ -1,0 +1,51 @@
+package org.example;
+
+import com.microsoft.playwright.*;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+public class CrossBrowser {
+    Playwright playwright;
+    BrowserType browserType;
+    Browser browser;
+    BrowserContext browserContext;
+    Page page;
+    @BeforeSuite
+    public void startBrowser(){
+        String browser1="chrome";
+        playwright=Playwright.create();
+        if(browser1.equalsIgnoreCase("chrome")){
+            browserType=playwright.chromium();
+        }
+        else if(browser1.equalsIgnoreCase("firefox")){
+            browserType=playwright.firefox();
+        }
+        else if(browser1.equalsIgnoreCase("ie")){
+            browserType=playwright.webkit();
+        }
+        else if(browser1.equalsIgnoreCase("safari")){
+            browserType=playwright.webkit();
+        }
+        else{
+            System.out.println("Invalid Browser");
+        }
+
+        browser=browserType.launch(new BrowserType.LaunchOptions().setHeadless(false));
+        browserContext=browser.newContext();
+        page=browser.newPage();
+        System.out.println("Browser version :" +browser.version());
+    }
+    @Test
+    public void openUrl(){
+
+        page.navigate("https://testing-and-learning-hub.vercel.app/WebAutomation/pages/registration_form.html");
+        page.waitForTimeout(3000);
+    }
+    @AfterSuite
+    public void stop(){
+        page.close();
+        browser.close();
+        playwright.close();
+    }
+}
