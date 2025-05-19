@@ -1,5 +1,5 @@
 # Web-Automation-Using-Playwright
-# Web-Automation Project Playwright-Practice Form Site(Demo QA Site) with Selenium &TestNG
+# Web-Automation Project Playwright-Practice Form Site(Demo QA Site) with Playwright &TestNG
 This repository includes a comprehensive web automation project using Java that automates various tasks on a website. It includes multiple features implemented as separate classes, making it a powerful tool for testing, web scraping, and more.
 
 **Table of Contents**
@@ -32,7 +32,7 @@ This repository includes a comprehensive web automation project using Java that 
 
 - **Description:** This class automates the selection of options from a dropdown.
 - **Steps:**
-  1. Selects options by index,value and visible text.
+  1. Selects options by index,value and label.
      
      
 
