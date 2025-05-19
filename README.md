@@ -30,11 +30,18 @@ This repository includes a comprehensive web automation project using Java that 
 
   ### 3.**IFrame**
   
-- **Description:** An iframe is a nested browser context inside a page. 
+  - **Description:** Use frameLocator() or page.frame() to work with iframes effectively.
   
-- **Description:** Playwright treats it as a separate frame, and you must target it to interact with its content.
+  
+- **Steps:**
+  
+  1. An iframe is a nested browser context inside a page. 
+  
+  2. Playwright treats it as a separate frame, and you must target it to interact with its content.
 
-- **Description:** Use frameLocator() or page.frame() to work with iframes effectively.
+  3. Use frameLocator() or page.frame() to work with iframes effectively.
+
+
 
   ### 3. **Option Select Class**
 
